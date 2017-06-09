@@ -38,14 +38,7 @@ from baremetal_network_provisioning.ml2.extensions import bnp_switch as bnp_sw
 
 
 LOG = logging.getLogger(__name__)
-driver_opts = [
-    cfg.StrOpt('provisioning_driver',
-               default='baremetal_network_provisioning.drivers'
-               '.snmp_provisioning_driver.SNMPProvisioningDriver',
-               help=_("Driver to provision networks on the switches in"
-                      "the cloud fabric")),
-]
-cfg.CONF.register_opts(driver_opts, "ml2_hpe")
+
 param_opts = [
     cfg.IntOpt('snmp_retries',
                default=5,

@@ -21,6 +21,14 @@ import stevedore
 
 LOG = log.getLogger(__name__)
 
+driver_opts = [
+    cfg.StrOpt('provisioning_driver',
+               default='baremetal_network_provisioning.drivers'
+               '.snmp_provisioning_driver.SNMPProvisioningDriver',
+               help=_("Driver to provision networks on the switches in"
+                      "the cloud fabric")),
+]
+cfg.CONF.register_opts(driver_opts, "ml2_hpe")
 
 class ProvisioningManager(stevedore.named.NamedExtensionManager):
     """Manage provisioning drivers for BNP."""
